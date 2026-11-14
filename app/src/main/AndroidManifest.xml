@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 마이크 사용 권한 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Vehicle SDK Odometer read/capability permission -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <!-- Runtime approval is still required; absent approval disables automatic start. -->
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <!-- Foreground GPS only; approval is requested separately by the user-facing flow. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+
+    <!-- PLEOS 음성 SDK 권한 -->
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <uses-permission android:name="pleos.car.permission.STT_SERVICE" />
+
+    <application
+        android:name=".AutoTripApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AutoTrip"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AutoTrip">
+
+            <!-- 차량 주행 중 화면 표시 관련 메타데이터 -->
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

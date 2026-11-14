@@ -1,0 +1,4 @@
+<resources>
+    <!-- 제출 서류의 앱 이름과 같게 (패키지명·코드 이름 com.autotrip은 그대로) -->
+    <string name="app_name">차곡차곡</string>
+</resources>
