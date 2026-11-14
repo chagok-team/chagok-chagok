@@ -77,19 +77,21 @@ Android 표준 API: `CarPropertyManager`(차량 속도), `LocationManager`(GPS �
 
 ### 1. APK 설치
 
-`apk/` 폴더에 두 가지 APK가 있습니다. **처음 보실 때는 시연용 APK를 권장합니다.**
+`apk/` 폴더에 두 가지 APK가 있습니다.
 
-| 파일 | 모드 | 설명 |
-|---|---|---|
-| [`apk/chagok_demo.apk`](apk/chagok_demo.apk) | 시연 모드 (Debug) | 모의 데이터로 운행 시작·목적지 설정·도착을 화면의 시연용 버튼으로 재현합니다. 음성은 실제 Pleos TTS·STT를 사용합니다. 시연 영상과 같은 흐름입니다. |
-| [`apk/chagok_release.apk`](apk/chagok_release.apk) | 실제 차량 모드 (Release) | 차량 속도·계기판·내비 이벤트와 기기 GPS를 사용합니다. 테스트용 인증서로 서명되어 있습니다. 검증 범위는 위 "구현 범위"를 참고해 주세요. |
+| 구분 | 파일 | 모드 | 설명 |
+|---|---|---|---|
+| **제출 APK** | [`apk/인하 CCC_차곡차곡_release.apk`](<apk/인하 CCC_차곡차곡_release.apk>) | 실제 차량 모드 (Release) | 차량 속도·계기판·내비 이벤트와 기기 GPS를 사용합니다. 테스트용 인증서로 서명되어 있습니다. 검증 범위는 위 "구현 범위"를 참고해 주세요. 주행은 아래 "주행 시뮬레이션"처럼 Virtual Console로 재현합니다. |
+| 보조 시연 APK | [`apk/chagok_demo.apk`](apk/chagok_demo.apk) | 시연 모드 (Debug) | 모의 데이터로 운행 시작·목적지 설정·도착을 화면의 시연용 버튼으로 재현합니다. 음성은 실제 Pleos TTS·STT를 사용합니다. 시연 영상과 같은 흐름입니다. |
 
 1. Pleos Connect Emulator 2.1.0을 실행합니다. (설정은 아래 "테스트 환경" 참고)
 2. APK를 설치합니다.
 
    ```bash
-   adb install -r apk/chagok_demo.apk
+   adb install -r "apk/인하 CCC_차곡차곡_release.apk"
    ```
+
+   음성 목적 입력까지 한 번에 보려면 시연 APK(`adb install -r apk/chagok_demo.apk`)를 설치합니다.
 
 3. 에뮬레이터의 앱 목록에서 **차곡차곡**을 실행합니다.
 
@@ -98,7 +100,7 @@ Android 표준 API: `CarPropertyManager`(차량 속도), `LocationManager`(GPS �
 | 파일 | SHA-256 |
 |---|---|
 | chagok_demo.apk | `c24d02c4d2fc739a63058efa62eaac37cbf4e175ef6feb3bf270e3b1c6013f3a` |
-| chagok_release.apk | `9955b1c864ab48458e8518b1fb79b2644fee69d655207ad8ba36d7ef56d717cf` |
+| 인하 CCC_차곡차곡_release.apk | `9955b1c864ab48458e8518b1fb79b2644fee69d655207ad8ba36d7ef56d717cf` |
 
 ### 2. 소스 빌드
 
