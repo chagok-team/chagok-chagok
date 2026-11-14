@@ -59,14 +59,28 @@ Android 표준 API: `CarPropertyManager`(차량 속도), `LocationManager`(GPS �
 
 ### 1. APK 설치
 
+`apk/` 폴더에 두 가지 APK가 있습니다. **처음 보실 때는 시연용 APK를 권장합니다.**
+
+| 파일 | 모드 | 설명 |
+|---|---|---|
+| [`apk/chagok_demo.apk`](apk/chagok_demo.apk) | 시연 모드 (Debug) | 모의 데이터로 운행 시작·목적지 설정·도착을 화면의 시연용 버튼으로 재현합니다. 음성은 실제 Pleos TTS·STT를 사용합니다. 시연 영상과 같은 흐름입니다. |
+| [`apk/chagok_release.apk`](apk/chagok_release.apk) | 실제 차량 모드 (Release) | 차량 속도·계기판·내비 이벤트와 기기 GPS를 사용합니다. 테스트용 인증서로 서명되어 있습니다. 검증 범위는 위 "구현 범위"를 참고해 주세요. |
+
 1. Pleos Connect Emulator 2.1.0을 실행합니다. (설정은 아래 "테스트 환경" 참고)
-2. 제출한 APK를 설치합니다.
+2. APK를 설치합니다.
 
    ```bash
-   adb install -r <APK 파일 경로>
+   adb install -r apk/chagok_demo.apk
    ```
 
 3. 에뮬레이터의 앱 목록에서 **차곡차곡**을 실행합니다.
+
+두 APK는 패키지 이름(`com.autotrip`)이 같고 서명이 달라서 함께 설치할 수 없습니다. 다른 쪽을 설치하려면 먼저 `adb uninstall com.autotrip`으로 삭제해 주세요.
+
+| 파일 | SHA-256 |
+|---|---|
+| chagok_demo.apk | `c24d02c4d2fc739a63058efa62eaac37cbf4e175ef6feb3bf270e3b1c6013f3a` |
+| chagok_release.apk | `9955b1c864ab48458e8518b1fb79b2644fee69d655207ad8ba36d7ef56d717cf` |
 
 ### 2. 소스 빌드
 
